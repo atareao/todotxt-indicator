@@ -1,3 +1,4 @@
 pycairo==1.19.1
 PyGObject==3.36.0
 PyGObject-stubs==0.0.2
+todotxtio==0.2.3

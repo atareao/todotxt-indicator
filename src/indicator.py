@@ -52,7 +52,7 @@ import config
 from configurator import Configuration
 from add_todo import AddTodoDialog
 from list_todos import ListTodos
-import todotxtio.todotxtio as todotxtio
+import todotxtio
 
 
 class Indicator(object):

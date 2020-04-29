@@ -36,7 +36,7 @@ import datetime
 from configurator import Configuration
 from list_box_check import ListBoxCheck
 from check_calendar import CheckCalendar
-from todotxtio import todotxtio
+import todotxtio
 
 def string2bool(value):
     if value.lower() in ['true', 'yes', 'y', '1']:
@@ -194,7 +194,7 @@ class AddTodoDialog(BaseDialog):
                 self.todo_item.tags = tags
         return self.todo_item
 
-        
+
 if __name__ == '__main__':
     addTodoDialog = AddTodoDialog()
     response = addTodoDialog.run()
@@ -211,4 +211,3 @@ if __name__ == '__main__':
             task = addTodoDialog.get_task()
             print(task)
         addTodoDialog.destroy()
-        

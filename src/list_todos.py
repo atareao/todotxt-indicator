@@ -33,7 +33,7 @@ except Exception as e:
 from gi.repository import Gtk
 import os
 from pathlib import Path
-import todotxtio.todotxtio as todotxtio
+import todotxtio
 from basedialog import BaseDialog
 from list_box_check import ListBoxCheck
 from list_box_todo import ListBoxTodo
