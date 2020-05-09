@@ -44,6 +44,7 @@ from add_context import AddContextDialog
 from add_tag import AddTagDialog
 from list_box_string import ListBoxString
 from list_box_string_type import ListBoxStringType
+from wait_keybind import WaitKeybind
 from alert import Alert
 from wait_keybind import WaitKeybind
 
