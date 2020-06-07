@@ -89,3 +89,6 @@ ENV/
 .vscode/
 debian/files
 .idea
+
+# Plugins directory
+src/plugins/*/
