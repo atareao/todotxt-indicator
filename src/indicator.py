@@ -293,7 +293,7 @@ class Indicator(object):
         hookmenu = self.hook.get_hook_menu()
         if hookmenu:
             menu.append(Gtk.SeparatorMenuItem())
-            for menuitem in hookmenu[0]:
+            for menuitem in hookmenu:
                 menu.append(menuitem)
             menu.append(Gtk.SeparatorMenuItem())
 
