@@ -33,17 +33,26 @@ from gi.repository import Gtk
 from config import _
 
 class Alert(Gtk.Dialog):
-    def show_alert(primary_message, secondary_message=False):
+    def show_alert(primary_message, secondary_message=False, okcancel=False):
+        buttons = Gtk.ButtonsType.OK
+        if okcancel:
+            buttons = (
+                    Gtk.STOCK_CANCEL,
+                    Gtk.ResponseType.CANCEL,
+                    Gtk.STOCK_OK,
+                    Gtk.ResponseType.OK,
+                )
         dialog = Gtk.MessageDialog(
             None,
             0,
             Gtk.MessageType.ERROR,
-            Gtk.ButtonsType.OK,
+            buttons,
             _(primary_message),
         )
         if secondary_message:
             dialog.format_secondary_text(
                 _(secondary_message)
             )
-        dialog.run()
+        result = dialog.run()
         dialog.destroy()
+        return result
