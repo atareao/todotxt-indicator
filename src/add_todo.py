@@ -128,7 +128,8 @@ class AddTodoDialog(BaseDialog):
         projects = preferences["projects"]
         contexts = preferences["contexts"]
         tags = preferences["tags"]
-
+        show_hidden_tags = preferences["show-hidden-tags"]
+        self.editable_hidden_tags = show_hidden_tags
         posv = 1
         self.projects = None
         self.contexts = None
@@ -156,7 +157,7 @@ class AddTodoDialog(BaseDialog):
             self.contexts.set_min_content_height(75)
             self.grid.attach(self.contexts, 1, posv, 1, 1)
         for tag in tags:
-            if tag["name"] in ("started_at", "total_time"):
+            if tag["name"] in ("started_at", "total_time") and not show_hidden_tags:
                 continue
             posv += 1
             label = Gtk.Label.new(tag["name"] + ": ")
@@ -209,8 +210,10 @@ class AddTodoDialog(BaseDialog):
                     value = tag.get_text()
                 if value:
                     tags[name] = value
-        tags["started_at"] = self.todo_item.tags.get("started_at", "0")
-        tags["total_time"] = self.todo_item.tags.get("total_time", "0")
+
+        if not self.editable_hidden_tags:
+            tags["started_at"] = self.todo_item.tags.get("started_at", "0")
+            tags["total_time"] = self.todo_item.tags.get("total_time", "0")
         self.todo_item.tags = tags
         return self.todo_item
 
